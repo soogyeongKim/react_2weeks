@@ -5,9 +5,14 @@ import { getCoinDetail } from "../../api";
 export default class extends React.Component {
   state = {
     loading: true,
-    coinDetail: {},
+    coinDetail: null,
   };
-  getCoinDetail = async (id) => {
+  getCoinDetail = async () => {
+    const {
+      match: {
+        params: { id },
+      },
+    } = this.props;
     try {
       const { data: coinDetail } = await getCoinDetail(id);
       this.setState({
@@ -21,12 +26,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    const {
-      match: {
-        params: { id },
-      },
-    } = this.props;
-    this.getCoinDetail(id);
+    this.getCoinDetail();
   }
 
   render() {

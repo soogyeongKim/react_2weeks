@@ -21,7 +21,7 @@ CoinDetailPresenter.propTypes = {
     open_source: PropTypes.bool.isRequired,
     proof_type: PropTypes.string.isRequired,
     org_structure: PropTypes.string.isRequired,
-  }).isRequired,
+  }),
   loading: PropTypes.bool.isRequired,
 };
 
